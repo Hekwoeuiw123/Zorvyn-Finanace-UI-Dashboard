@@ -138,7 +138,7 @@ npm install
 npm run dev
 ```
 
-The app will be available at ****
+The app will be available at **https://finance-ui-dashboard.netlify.app/**
 
 ### Available Scripts
 
