@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* Custom Tailwind v4 breakpoints */
+@theme {
+    --breakpoint-xs: 475px;
+}
+
+/* Prevent horizontal overflow on all screen sizes */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── LIGHT THEME ─────────────────────────────────────────────────────────── */
+/*
+  Strategy: remap Tailwind v4's internal slate CSS variables in light mode.
+  Your existing classes (bg-slate-950, bg-slate-900, etc.) remain unchanged
+  in JSX — only the color VALUES swap here automatically.
+*/
+[data-theme="light"] {
+    --color-slate-950: #f8fafc;
+    --color-slate-900: #f1f5f9;
+    --color-slate-800: #e2e8f0;
+    --color-slate-700: #cbd5e1;
+    --color-slate-600: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-slate-400: #475569;
+    --color-slate-300: #334155;
+    --color-slate-200: #1e293b;
+    --color-white: #0f172a;
+    --scrollbar-thumb: #cbd5e1;
+}
+
+[data-theme="light"] .bg-blue-600 {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+[data-theme="light"] [class*="hover:shadow-["] {
+    --tw-shadow-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .recharts-tooltip-wrapper {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+[data-theme="light"] [class*="bg-linear-to-br"] {
+    opacity: 0.25 !important;
+}
+
+[data-theme="light"] body,
+[data-theme="light"] html {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+/* ─── LIGHT THEME — form inputs & native elements ─────────────────────────── */
+/* Browser-native form elements don't follow CSS variable remapping, so we  */
+/* must explicitly override their background/color/border in light mode.     */
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+    color-scheme: light;
+}
+
+[data-theme="light"] input::placeholder {
+    color: #94a3b8 !important;
+}
+
+[data-theme="light"] option {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+/* Modal backdrop slightly lighter in light mode */
+[data-theme="light"] .bg-slate-950\/75 {
+    background-color: rgba(15, 23, 42, 0.55) !important;
+}
+
+/* Table backgrounds — hardcoded slate-900 needs explicit help in light mode */
+[data-theme="light"] thead {
+    background-color: #e2e8f0 !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb, #1e293b);
+    border-radius: 10px;
+}
