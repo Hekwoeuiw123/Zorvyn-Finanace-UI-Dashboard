@@ -32,7 +32,7 @@ const TransactionRow = ({ tx, onEdit }) => {
                                 : <ArrowDownLeft size={15} />
                             }
                         </div>
-                        <span className="text-sm font-semibold text-slate-100 leading-snug line-clamp-1">
+                        <span className="text-sm font-semibold text-slate-200 leading-snug line-clamp-1">
                             {tx.description}
                         </span>
                     </div>

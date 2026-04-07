@@ -21,7 +21,7 @@ const Insights = () => {
     const momChange = mayExp > 0 ? ((juneExp - mayExp) / mayExp) * 100 : 0;
 
     // 3]. Calculate Savings Rate
-    const savingsRate = summary.total > 0 ? (summary.income / summary.total) * 100 : 0;
+    const savingsRate = summary.income > 0 ? ((summary.income - summary.expense) / summary.income) * 100 : 0;
 
     const insightData = [
         {

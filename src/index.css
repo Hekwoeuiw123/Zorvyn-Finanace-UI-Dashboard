@@ -91,6 +91,36 @@ body {
     background-color: #e2e8f0 !important;
 }
 
+/* Table body rows — ensure text is always visible in light mode */
+[data-theme="light"] tbody tr:hover {
+    background-color: rgba(148, 163, 184, 0.15) !important;
+}
+
+/* Description text in transaction rows — slate-100 maps to near-white in light mode, override */
+[data-theme="light"] tbody td span.text-slate-100,
+[data-theme="light"] tbody td .text-slate-100 {
+    color: #0f172a !important;
+}
+
+/* Ensure all tbody td text is dark enough in light mode */
+[data-theme="light"] tbody td {
+    color: #334155;
+}
+
+/* Keep amount colors (emerald/rose) visible — they already work, just keep text not overridden */
+[data-theme="light"] tbody td.text-emerald-400 {
+    color: #059669 !important;
+}
+
+[data-theme="light"] tbody td.text-rose-400 {
+    color: #e11d48 !important;
+}
+
+/* Divider lines between rows in light mode */
+[data-theme="light"] tbody.divide-y>tr {
+    border-color: #e2e8f0;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }
